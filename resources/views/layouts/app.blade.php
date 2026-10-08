@@ -6,7 +6,7 @@
     <title>@yield('title', 'BPS Provinsi Kalimantan Barat')</title>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 <nav class="navbar navbar-expand-md bg-primary fixed-top" data-bs-theme="dark">
     <div class="container-fluid px-4">
@@ -38,11 +38,11 @@
     </div>
 </nav>
 
-<main>
+<main class="flex-grow-1">
     @yield('content')
 </main>
 
-<footer class="text-center text-muted small py-3 border-top mt-4">
+<footer class="text-center text-muted small py-3 border-top mt-auto">
     &copy; {{ date('Y') }} BPS Provinsi Kalimantan Barat
 </footer>
 
