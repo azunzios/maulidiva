@@ -24,7 +24,9 @@ class PublikasiController extends Controller
         $request->validate([
             'judul'         => 'required|string|max:255',
             'tanggal_rilis' => 'required|date',
-            'sampul'        => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'sampul'        => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
+        ], [
+            'sampul.max' => 'Ukuran file sampul maksimal 5MB.',
         ]);
 
         // Upload sampul ke public/images (sesuai folder di modul)
@@ -73,7 +75,9 @@ public function update(Request $request, Publikasi $publikasi)
     $request->validate([
         'judul'         => 'required|string|max:255',
         'tanggal_rilis' => 'required|date',
-        'sampul'        => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        'sampul'        => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
+    ], [
+        'sampul.max' => 'Ukuran file sampul maksimal 5MB.',
     ]);
 
     $namaFile = $publikasi->sampul; // default: pakai sampul lama
